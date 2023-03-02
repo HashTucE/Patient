@@ -1,0 +1,190 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Patient API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/patient/find/{id}": {
+      "get": {
+        "operationId": "findPatientById",
+        "summary": "Find patient by id",
+        "description": "Find patient by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the patient",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Patient not found exception"
+          }
+        }
+      }
+    },
+    "/api/patient/finder/{familyName}": {
+      "get": {
+        "operationId": "findPatientByFamilyName",
+        "summary": "Find patient by family name",
+        "description": "Find patient by family name",
+        "parameters": [
+          {
+            "name": "familyName",
+            "in": "path",
+            "description": "The family name of the patient",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Patient not found exception"
+          }
+        }
+      }
+    },
+    "/api/patient/list": {
+      "get": {
+        "operationId": "getAllPatients",
+        "summary": "Get all patients",
+        "description": "Get all patients",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/patient/validate": {
+      "post": {
+        "operationId": "validatePatient",
+        "summary": "Validate patient",
+        "description": "Validate patient",
+        "requestBody": {
+          "description": "The patient data to validate",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatientDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The validated patient",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/patient/update/{id}": {
+      "post": {
+        "operationId": "updatePatient",
+        "summary": "Update patient",
+        "description": "Update patient",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the patient to update",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatientDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/patient/delete/{id}": {
+      "post": {
+        "operationId": "deletePatient",
+        "summary": "Delete patient",
+        "description": "Delete patient",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the patient to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    }
+  }
+}
