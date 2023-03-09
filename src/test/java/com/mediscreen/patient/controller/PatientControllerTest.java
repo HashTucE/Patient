@@ -133,6 +133,23 @@ public class PatientControllerTest {
 
 
     @Test
+    @DisplayName("Should return no content when no patients exist")
+    void getAllPatientsNegativeTest() {
+
+        // Arrange
+        when(patientService.getAllPatients()).thenReturn(Collections.emptyList());
+
+        // Act
+        ResponseEntity<List<PatientDto>> response = patientController.getAllPatients();
+
+        // Assert
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+        assertNull(response.getBody());
+        verify(patientService).getAllPatients();
+    }
+
+
+    @Test
     @DisplayName("Should found equality")
     void updatePatientTest() throws PatientNotFoundException {
 

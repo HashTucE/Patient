@@ -43,8 +43,7 @@ public class PatientCurlController {
     @Operation(summary = "Add a new patient", description = "Endpoint for adding a new patient")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
-            @ApiResponse(responseCode = "400", description = "Invalid parameter"),
-            @ApiResponse(responseCode = "500", description = "Server error")
+            @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @Parameters({
             @Parameter(name = "family", description = "Patient's family name", required = true, example = "Doe"),

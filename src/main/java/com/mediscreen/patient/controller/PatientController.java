@@ -87,11 +87,15 @@ public class PatientController {
     @ApiResponse(responseCode = "200", description = "List of patients")
     @ApiResponse(responseCode = "204", description = "No patients found")
     public ResponseEntity<List<PatientDto>> getAllPatients() {
-
-        log.debug("Get all patients request received");
         List<PatientDto> patientList = patientService.getAllPatients();
-        log.debug("Get all patients request processed, patients count: {}", patientList.size());
-        return ResponseEntity.ok(patientList);
+
+        if (patientList.isEmpty()) {
+            log.debug("Get all patients request processed, no patients found");
+            return ResponseEntity.noContent().build();
+        } else {
+            log.debug("Get all patients request processed, patients count: {}", patientList.size());
+            return ResponseEntity.ok(patientList);
+        }
     }
 
 
