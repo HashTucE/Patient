@@ -13,6 +13,7 @@ Please go to [Mediscreen](https://github.com/HashTucE/Mediscreen.git) to learn m
 - Maven 4.0.0
 - Spring Boot 3.0.2
 - MySQL 8.0.29
+- Docker 4.16.2
 
 # How to upload the Patient image to your Docker Registry
 
@@ -30,12 +31,13 @@ Please go to [Mediscreen](https://github.com/HashTucE/Mediscreen.git) to learn m
 4. You can then execute this command to link your local image with a repository of `Docker Registry` :
   ```
   docker tag [local_image_name]:latest [your_docker_username]/[distant_repository_name]:latest
+  (Make sure to be connected to your account on Docker Desktop !)
   ```
 5. And finally execute this command to upload your local image to your `Docker Registry` :
   ```
   docker push [your_docker_username]/[distant_repository_name]:latest
   ```
-6. If you want to build Mediscreen with the image you just created, make sure to modify the docker-compose.yml of [Mediscreen](https://github.com/HashTucE/Mediscreen.git) replacing the `image` path inside `patient.ms` by your own :
+6. If you want to build [Mediscreen](https://github.com/HashTucE/Mediscreen.git) with the image you just created, make sure to modify his docker-compose.yml of replacing the `image` path inside `patient.ms` by your own :
   ```
   [your_docker_username]/[distant_repository_name]:latest
   ```
