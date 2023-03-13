@@ -22,7 +22,7 @@ Please go to [Mediscreen](https://github.com/HashTucE/Mediscreen.git) to learn m
   ```
   mvn clean install
   ```
-3. Still at the same location (to point to the `Dockerfile`) build the image of `Patient`using :
+3. Still at the same location (to point to the `Dockerfile`) build the image of `Patient` using :
   ```
   docker build -t jar .
   (Make sure that the jar name inside the Dockerfile is identical to the jar name located to the target folder !)
