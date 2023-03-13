@@ -37,7 +37,7 @@ Please go to [Mediscreen](https://github.com/HashTucE/Mediscreen.git) to learn m
   ```
   docker push [your_docker_username]/[distant_repository_name]:latest
   ```
-6. If you want to build [Mediscreen](https://github.com/HashTucE/Mediscreen.git) with the image you just created, make sure to modify his docker-compose.yml of replacing the `image` path inside `patient.ms` by your own :
+6. If you want to build [Mediscreen](https://github.com/HashTucE/Mediscreen.git) with the image you just created, make sure to modify his docker-compose.yml of replacing the `image path` inside `patient.ms` by your own :
   ```
   [your_docker_username]/[distant_repository_name]:latest
   ```
